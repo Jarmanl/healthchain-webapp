@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  ENABLE_BLUEMIX_DEV_MODE : "true"
+  domain: mybluemix.net
+  name: healthchain-web2
+  host: healthchain-web2
+  disk_quota: 1024M
+  buildpack: nodejs_buildpack
+  services:
+  - ElephantSQL-p0
