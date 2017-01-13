@@ -1,0 +1,192 @@
+{
+	"id": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+	"name": "Healthchain Test",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "13cb2bfd-7908-02a2-3814-383ba3fedee3",
+			"name": "approveTx",
+			"description": "",
+			"order": [
+				"52eaf866-c039-922b-4ef7-d68943e2fd3f"
+			],
+			"owner": "1251635"
+		},
+		{
+			"id": "e2dd7db0-61aa-9edc-546d-23a8c0c346e9",
+			"name": "createRecord",
+			"description": "",
+			"order": [
+				"6dc9c18b-c58f-1a96-a240-729c9b19a60a"
+			],
+			"owner": "1251635"
+		},
+		{
+			"id": "69ca35ae-45fe-181d-7a0d-4b12f6acb239",
+			"name": "getRecord",
+			"description": "",
+			"order": [
+				"a256e1df-6453-42a2-ad65-21a74d12234d",
+				"cedb1068-9c94-8c96-5771-ac7e7f53c36d"
+			],
+			"owner": "1251635",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2"
+		},
+		{
+			"id": "8b436df9-5a1c-84be-77da-5f58172d4a50",
+			"name": "getRequest",
+			"description": "",
+			"order": [
+				"6527b0ab-4238-c6b4-ac94-c755d0ded625"
+			],
+			"owner": "1251635"
+		},
+		{
+			"id": "42e72d1c-aa79-b505-4cd2-7139efdde86f",
+			"name": "requestRecords",
+			"description": "",
+			"order": [
+				"44abc605-70b7-fca4-da33-340f6bea8c02"
+			],
+			"owner": "1251635"
+		}
+	],
+	"timestamp": 1480965441329,
+	"owner": "1251635",
+	"public": false,
+	"requests": [
+		{
+			"id": "44abc605-70b7-fca4-da33-340f6bea8c02",
+			"headers": "",
+			"url": "http://9.28.242.62:7050/chaincode",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://9.28.242.62:7050/chaincode",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1481290260723,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n\ntests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"jsonrpc is present\"] = jsonData.jsonrpc;\ntests[\"jsonrpc is 2.0\"] = jsonData.jsonrpc === \"2.0\";\ntests[\"result is present\"] = jsonData.result;\ntests[\"status in result object is present\"] = jsonData.result.status;\ntests[\"status in result object is OK\"] = jsonData.result.status === \"OK\";\ntests[\"message in result object is present\"] = jsonData.result.message;\ntests[\"Request in message object in result object is undefined\"] = jsonData.result.message.Request === undefined;\n\ntests[\"id is present\"] = jsonData.id;\ntests[\"id is 1\"] = jsonData.id === 1;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "42e72d1c-aa79-b505-4cd2-7139efdde86f",
+			"rawModeData": "{ \"jsonrpc\": \"2.0\",\n          \"method\": \"invoke\",\n          \"params\": {\n            \"secureContext\":\"admin\",\n            \"type\": 1,\n            \"chaincodeID\":{\n              \"name\": \"mycc\"\n            },\n            \"ctorMsg\": {\n              \"function\":\"requestRecord\",\n              \"args\":[\"{\\\"dob\\\":\\\"23/11/1991\\\",\\\"firstName\\\":\\\"Emman\\\",\\\"lastName\\\":\\\"Etti\\\",\\\"UserId\\\":\\\"2\\\",\\\"PatientId\\\":\\\"3\\\",\\\"RequesterName\\\":\\\"Nan\\\",\\\"Approve\\\":\\\"false\\\",\\\"Date\\\":\\\"18/03/1985\\\"}\"]\n            }\n          },\n          \"id\": 1\n        }"
+		},
+		{
+			"id": "52eaf866-c039-922b-4ef7-d68943e2fd3f",
+			"headers": "",
+			"url": "http://9.28.242.62:7050/chaincode",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://9.28.242.62:7050/chaincode",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1481299297441,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Status code name has string\"] = responseCode.name.has(\"OK\");\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n\ntests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"jsonrpc is present\"] = jsonData.jsonrpc;\ntests[\"jsonrpc is 2.0\"] = jsonData.jsonrpc === \"2.0\";\ntests[\"result is present\"] = jsonData.result;\ntests[\"status in result object is present\"] = jsonData.result.status;\ntests[\"status in result object is OK\"] = jsonData.result.status === \"OK\";\ntests[\"message in result object is present\"] = jsonData.result.message;\ntests[\"Request in message object in result object is undefined\"] = jsonData.result.message.Request === undefined;\n\ntests[\"id is present\"] = jsonData.id;\ntests[\"id is 1\"] = jsonData.id === 1;\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "13cb2bfd-7908-02a2-3814-383ba3fedee3",
+			"rawModeData": "{ \"jsonrpc\": \"2.0\",\n          \"method\": \"invoke\",\n          \"params\": {\n            \"secureContext\":\"admin\",\n            \"type\": 1,\n            \"chaincodeID\":{\n              \"name\": \"mycc\"\n            },\n            \"ctorMsg\": {\n              \"function\":\"approveTx\",\n              \"args\":[\"{\\\"dob\\\":\\\"23/11/1991\\\",\\\"firstName\\\":\\\"Emman\\\",\\\"lastName\\\":\\\"Etti\\\",\\\"approve\\\":true,\\\"Date\\\":\\\"05/12/2016\\\",\\\"requesterName\\\":\\\"\\\",\\\"userId\\\":\\\"1\\\"}\" ]\n            }\n          },\n          \"id\": 1\n        }"
+		},
+		{
+			"id": "6527b0ab-4238-c6b4-ac94-c755d0ded625",
+			"headers": "",
+			"url": "http://9.28.242.62:7050/chaincode",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://9.28.242.62:7050/chaincode",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1481299443596,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Status code name has string\"] = responseCode.name.has(\"OK\");\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n\ntests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"jsonrpc is present\"] = jsonData.jsonrpc;\ntests[\"jsonrpc is 2.0\"] = jsonData.jsonrpc === \"2.0\";\ntests[\"result is present\"] = jsonData.result;\ntests[\"status in result object is present\"] = jsonData.result.status;\ntests[\"status in result object is OK\"] = jsonData.result.status === \"OK\";\ntests[\"message in result object is present\"] = jsonData.result.message;\ntests[\"Request in message object in result object is undefined\"] = jsonData.result.message.Request === undefined;\n\ntests[\"id is present\"] = jsonData.id;\ntests[\"id is 1\"] = jsonData.id === 1;\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "8b436df9-5a1c-84be-77da-5f58172d4a50",
+			"rawModeData": "{ \"jsonrpc\": \"2.0\",\n          \"method\": \"query\",\n          \"params\": {\n            \"secureContext\":\"admin\",\n            \"type\": 1,\n            \"chaincodeID\":{\n              \"name\": \"mycc\"\n            },\n            \"ctorMsg\": {\n              \"function\":\"getRequest\",\n              \"args\":[\"a\"]\n            }\n          },\n          \"id\": 1\n        }"
+		},
+		{
+			"id": "6dc9c18b-c58f-1a96-a240-729c9b19a60a",
+			"headers": "",
+			"url": "http://9.28.242.62:7050/chaincode",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://9.28.242.62:7050/chaincode",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1481299381353,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Status code name has string\"] = responseCode.name.has(\"OK\");\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n\ntests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"jsonrpc is present\"] = jsonData.jsonrpc;\ntests[\"jsonrpc is 2.0\"] = jsonData.jsonrpc === \"2.0\";\ntests[\"result is present\"] = jsonData.result;\ntests[\"status in result object is present\"] = jsonData.result.status;\ntests[\"status in result object is OK\"] = jsonData.result.status === \"OK\";\ntests[\"message in result object is present\"] = jsonData.result.message;\ntests[\"Body matches string\"] = responseBody.has(\"message\");\ntests[\"Request in message object in result object is undefined\"] = jsonData.result.message.Request === undefined;\n\ntests[\"id is present\"] = jsonData.id;\ntests[\"id is 1\"] = jsonData.id === 1;\n\n\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e2dd7db0-61aa-9edc-546d-23a8c0c346e9",
+			"rawModeData": "{ \"jsonrpc\": \"2.0\",\n          \"method\": \"invoke\",\n          \"params\": {\n            \"secureContext\":\"admin\",\n            \"type\": 1,\n            \"chaincodeID\":{\n              \"name\": \"mycc\"\n            },\n            \"ctorMsg\": {\n              \"function\":\"createRecord\",\n              \"args\":[\"{\\\"dob\\\":\\\"23/11/1991\\\",\\\"firstName\\\":\\\"Emman\\\",\\\"lastName\\\":\\\"Etti\\\",\\\"UserId\\\":\\\"2\\\",\\\"PatientId\\\":\\\"3\\\",\\\"RequesterName\\\":\\\"Nan\\\",\\\"Approve\\\":\\\"false\\\",\\\"Date\\\":\\\"18/03/1985\\\"}\"]\n            }\n          },\n          \"id\": 1\n        }"
+		},
+		{
+			"id": "a256e1df-6453-42a2-ad65-21a74d12234d",
+			"headers": "",
+			"url": "http://9.28.242.62:7050/chaincode",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://9.28.242.62:7050/chaincode",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1481211103316,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n\ntests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"jsonrpc is present\"] = jsonData.jsonrpc;\ntests[\"jsonrpc is 2.0\"] = jsonData.jsonrpc === \"2.0\";\ntests[\"result is present\"] = jsonData.result;\ntests[\"status in result object is present\"] = jsonData.result.status;\ntests[\"status in result object is OK\"] = jsonData.result.status === \"OK\";\ntests[\"message in result object is present\"] = jsonData.result.message;\ntests[\"Request in message object in result object is undefined\"] = jsonData.result.message.Request === undefined;\n\ntests[\"id is present\"] = jsonData.id;\ntests[\"id is 1\"] = jsonData.id === 1;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "69ca35ae-45fe-181d-7a0d-4b12f6acb239",
+			"rawModeData": "{ \"jsonrpc\": \"2.0\",\n          \"method\": \"query\",\n          \"params\": {\n            \"secureContext\":\"admin\",\n            \"type\": 1,\n            \"chaincodeID\":{\n              \"name\": \"mycc\"\n            },\n            \"ctorMsg\": {\n              \"function\":\"getRecordPatient\",\n              \"args\":[\"{\\\"PatientId\\\":\\\"2\\\",\\\"RequesterName\\\":\\\"Nan\\\",\\\"Approve\\\":\\\"true\\\",\\\"UserId\\\":\\\"3\\\"}\"]\n            }\n          },\n          \"id\": 1\n        }"
+		},
+		{
+			"id": "cedb1068-9c94-8c96-5771-ac7e7f53c36d",
+			"headers": "",
+			"url": "http://9.28.242.62:7050/chaincode",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a23e6135-bce3-8609-49be-4394d82d6ad2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://9.28.242.62:7050/chaincode",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1481298319356,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n\ntests[\"Content-Type is application/json\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"jsonrpc is present\"] = jsonData.jsonrpc;\ntests[\"jsonrpc is 2.0\"] = jsonData.jsonrpc === \"2.0\";\ntests[\"result is present\"] = jsonData.result;\ntests[\"status in result object is present\"] = jsonData.result.status;\ntests[\"status in result object is OK\"] = jsonData.result.status === \"OK\";\ntests[\"message in result object is present\"] = jsonData.result.message;\ntests[\"Request in message object in result object is undefined\"] = jsonData.result.message.Request === undefined;\n\ntests[\"id is present\"] = jsonData.id;\ntests[\"id is 1\"] = jsonData.id === 1;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "69ca35ae-45fe-181d-7a0d-4b12f6acb239",
+			"rawModeData": "{ \"jsonrpc\": \"2.0\",\n          \"method\": \"invoke\",\n          \"params\": {\n            \"secureContext\":\"admin\",\n            \"type\": 1,\n            \"chaincodeID\":{\n              \"name\": \"mycc\"\n            },\n            \"ctorMsg\": {\n              \"function\":\"getRecordClinic\",\n              \"args\":[\"{\\\"PatientId\\\":\\\"2\\\",\\\"RequesterName\\\":\\\"Nan\\\",\\\"Approve\\\":\\\"true\\\",\\\"UserId\\\":\\\"3\\\"}\"]\n            }\n          },\n          \"id\": 1\n        }"
+		}
+	]
+}

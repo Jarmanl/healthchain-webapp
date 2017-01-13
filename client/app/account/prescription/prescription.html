@@ -1,0 +1,60 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>HealthChain Patient App</h1>
+    <p class="lead">IBM Internal Blockchain Project</p>
+    <!-- <img src="assets/images/yeoman.png" alt="I'm Yeoman"> -->
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8">
+        <h1 class="text-center">BlockChain Actions</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8" style="align:center;">
+        <!--<button class="btn" type="button" ng-click="vm.bcInit()">Initialize</button>-->
+        <!--<button class="btn" type="button" ng-click="vm.bcQuery()">Query</button>-->
+        <button class="btn btn-balance glyphicon glyphicon-refresh" type="button" ng-click="vm.bcQuery()">Refresh!</button>
+        <!--<button class="btn" type="button" ng-click="vm.bcInvoke()">Invoke</button>-->
+      </div>
+    </div>
+  </div>
+  <div class="loading" ng-class="{'hide':vm.hideLoading}">Loading&#8230;</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8">
+        <h1 class="text-center">Prescription List</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8">
+        <table class="table table-bordered">
+          <tr>
+            <!--<th>Record ID</th>-->
+
+             <th>Doctor's Name</th>
+             <th>Prescription</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+          <tr ng-repeat="record in vm.blockChainResponse">
+            <!--<td>{{record.RecordID}}</td>-->
+            <td>{{record.DoctorID}}</td>
+            <td>{{record.Prescription}}</td>
+            <!-- <td>{{record.hospital}}</td> -->
+            <td>{{record.Date | date: "dd-MM-yyyy"}}</td>
+            <td>
+              <button class="btn btn-info" type="button" >View</button>
+            </td>
+          </tr>
+          <h4 class="text-center" ng-if="vm.blockChainResponse == undefined && vm.blockChainResponse.length < 1"> No pending Records</h4>
+        </table>
+      </div>
+  </div>
+</div>
