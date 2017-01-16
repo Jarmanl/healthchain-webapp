@@ -12,7 +12,7 @@ var config = require('../config/environment');
 var Sequelize = require('sequelize');
 
 var db = {
-  Sequelize,
+  sequelize,
   sequelize: new Sequelize(config.sequelize.uri, config.sequelize.options)
 };
 
